@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1D7236"
+    tools:context=".RatingActivity">
+
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineScroll"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.99"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineScroll1"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.99"/>
+
+    <ScrollView
+        android:id="@+id/scrollRacingView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="120dp"
+        android:background="#25B44F"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineScroll1"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineScroll"
+        app:layout_constraintStart_toStartOf="@+id/guidelineScroll"
+        app:layout_constraintTop_toTopOf="@+id/guidelineScroll1"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:id="@+id/ratingScrollLinLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btnCoins"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Богачи"
+        app:layout_constraintBottom_toTopOf="@+id/scrollRacingView"
+        app:layout_constraintStart_toStartOf="parent"
+        android:onClick="onClick"/>
+
+    <Button
+        android:id="@+id/btnLuck"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Везунчики"
+        app:layout_constraintBottom_toTopOf="@+id/scrollRacingView"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:onClick="onClick"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

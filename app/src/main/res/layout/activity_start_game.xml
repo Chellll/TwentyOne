@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1D7236"
+    tools:context=".StartGameActivity">
+
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:text="100"
+        app:layout_constraintStart_toEndOf="@+id/textView13"
+        app:layout_constraintTop_toBottomOf="@+id/sb" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:text="150"
+        app:layout_constraintStart_toEndOf="@+id/textView15"
+        app:layout_constraintTop_toBottomOf="@+id/sb" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:text="200"
+        app:layout_constraintStart_toEndOf="@+id/textView16"
+        app:layout_constraintTop_toBottomOf="@+id/sb" />
+
+    <TextView
+        android:id="@+id/textViewWins"
+        android:layout_width="97dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="7dp"
+        android:text="5000"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewWins"
+        app:layout_constraintStart_toEndOf="@+id/imageViewWins"
+        app:layout_constraintTop_toTopOf="@+id/imageViewWins"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/imageViewCoins"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/coin" />
+
+    <TextView
+        android:id="@+id/textViewCoins"
+        android:layout_width="97dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="7dp"
+        android:text="30000"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewCoins"
+        app:layout_constraintStart_toEndOf="@+id/imageViewCoins"
+        app:layout_constraintTop_toTopOf="@+id/imageViewCoins"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/imageViewWins"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewCoins"
+        app:srcCompat="@drawable/luck" />
+
+
+
+    <SeekBar
+        android:id="@+id/sb"
+        android:layout_width="278dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="24dp"
+        android:max="3"
+        android:theme="@style/Widget.AppCompat.SeekBar.Discrete"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:text="Тип игры"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="55dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Тип 1"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:background="@drawable/type"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        android:onClick="onClickType"/>
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="55dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Тип 2"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:background="@drawable/type"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        android:onClick="onClickType"/>
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="55dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Тип 3"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:background="@drawable/type"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        android:onClick="onClickType"/>
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="Ставка"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Колличество игроков"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sb" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="29dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="45dp"
+        android:background="@drawable/players"
+        android:gravity="center"
+        android:text="2"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/textView10"
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        android:onClick="onClickPlayers"/>
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="29dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="45dp"
+        android:text="3"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:background="@drawable/players"
+        app:layout_constraintEnd_toStartOf="@+id/textView11"
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        android:onClick="onClickPlayers"/>
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="29dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="45dp"
+        android:text="4"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:background="@drawable/players"
+        app:layout_constraintEnd_toStartOf="@+id/textView12"
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        android:onClick="onClickPlayers"/>
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="29dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="64dp"
+        android:background="@drawable/players"
+        android:gravity="center"
+        android:text="5"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        android:onClick="onClickPlayers"/>
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="50"
+        app:layout_constraintStart_toStartOf="@+id/sb"
+        app:layout_constraintTop_toBottomOf="@+id/sb" />
+</androidx.constraintlayout.widget.ConstraintLayout>

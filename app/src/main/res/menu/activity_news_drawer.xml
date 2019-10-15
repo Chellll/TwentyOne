@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_friend"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="@string/menu_friend" />
+        <item
+            android:id="@+id/nav_news"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="@string/menu_news" />
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="@string/menu_profile" />
+        <item
+            android:id="@+id/nav_rating"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="@string/menu_rating" />
+        <item
+            android:id="@+id/nav_rules"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="@string/menu_rules" />
+        <item
+            android:id="@+id/nav_send_coins"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="@string/menu_send_coins" />
+        <item
+            android:id="@+id/nav_start_game"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="@string/menu_start_game" />
+        <item
+            android:id="@+id/nav_tournament"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="@string/menu_tournament" />
+    </group>
+
+    <item android:title="Действие">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_menu_share"
+                android:title="@string/menu_logout" />
+        </menu>
+    </item>
+
+</menu>

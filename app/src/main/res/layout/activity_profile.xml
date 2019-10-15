@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="8dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelinePhotoVert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelinePhotoHor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <ImageView
+        android:id="@+id/user_image_view"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintLeft_toRightOf="@id/guidelinePhotoVert"
+        app:layout_constraintTop_toBottomOf="@id/guidelinePhotoHor"/>
+
+    <TextView
+        android:id="@+id/user_name_text_view"
+        android:text="@string/profile_name"
+        style="@style/TextView.Primary"
+        android:layout_marginTop="@dimen/text_small_margin"
+        app:layout_constraintTop_toBottomOf="@id/user_image_view"
+        app:layout_constraintLeft_toRightOf="@id/guidelinePhotoVert" />
+
+    <TextView
+        android:id="@+id/user_nick_text_view"
+        android:text="@string/profile_nick"
+        style="@style/TextView.Secondary"
+        android:layout_marginTop="@dimen/text_small_margin"
+        app:layout_constraintLeft_toRightOf="@id/guidelinePhotoVert"
+        app:layout_constraintTop_toBottomOf="@id/user_name_text_view"/>
+
+    <TextView
+        android:id="@+id/user_email_text_view"
+        android:text="@string/profile_email"
+        style="@style/TextView.Primary"
+        android:layout_marginTop="@dimen/text_small_margin"
+        app:layout_constraintLeft_toRightOf="@id/guidelinePhotoVert"
+        app:layout_constraintTop_toBottomOf="@id/user_nick_text_view"/>
+
+    <TextView
+        android:id="@+id/following_text_view"
+        android:text="@string/profile_friend"
+        style="@style/TextView.Primary"
+        android:layout_marginTop="@dimen/text_small_margin"
+        app:layout_constraintLeft_toRightOf="@id/guidelinePhotoVert"
+        app:layout_constraintTop_toBottomOf="@id/user_email_text_view"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

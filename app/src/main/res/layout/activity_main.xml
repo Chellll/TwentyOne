@@ -58,6 +58,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="8dp"
         android:text="Войти"
+        android:onClick="onClickAuth"
         app:layout_constraintBottom_toTopOf="@+id/guidelineSignIn"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintStart_toStartOf="@+id/guideline"

@@ -22,4 +22,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
         startActivity(intent);
     }
+
+    public void onClickAuth(View view){
+        Intent intent = new Intent(this, AuthActivity.class);
+        startActivity(intent);
+    }
 }

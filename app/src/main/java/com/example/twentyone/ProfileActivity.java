@@ -1,102 +1,67 @@
 package com.example.twentyone;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
-public class ProfileActivity extends AppCompatActivity {
-    EditText et;
-    SharedPreferences sPref;
-    SharedPreferences sImg;
-    final String SAVED_TEXT = "saved_text";
-    static final int GALLARY_REQUEST = 1;
+import com.example.twentyone.Model.User;
+import com.squareup.picasso.Picasso;
 
+public class ProfileActivity extends AppCompatActivity {
+
+    public static final String USER_KEY = "EMAIL_KEY";
+
+    private ImageView userImageView;
+    private TextView nameTextView;
+    private TextView nickTextView;
+    private TextView emailTextView;
+    private TextView friendTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        /*
-        et = (EditText) findViewById(R.id.editNickName);
-        int argument = getIntent().getIntExtra("pickedImage",1);
-        if(argument==1){
+        userImageView = findViewById(R.id.user_image_view);
+        nameTextView = findViewById(R.id.user_name_text_view);
+        nickTextView = findViewById(R.id.user_nick_text_view);
+        emailTextView = findViewById(R.id.user_email_text_view);
+        friendTextView = findViewById(R.id.following_count_text_view);
 
-            ImageView imageView=findViewById(R.id.imageViewProf);
-            imageView.setImageResource(R.drawable.ava_1);
-            sImg = getPreferences(MODE_PRIVATE);
-            SharedPreferences.Editor editor = sImg.edit();
-            editor.apply();
+        User user = SharedPreferenceHelper.getUserLocal();
+
+
+
+        nameTextView.setText(user.getName());
+        nickTextView.setText(user.getNick());
+        emailTextView.setText(user.getEmail());
+        if(user.getImageUrl()!= null)
+        {
+            userImageView.setImageDrawable(user.getImageUrl());
         }
-        if(argument==2){
-
-            ImageView imageView=findViewById(R.id.imageViewProf);
-            imageView.setImageResource(R.drawable.ava_2);
-            sImg = getPreferences(MODE_PRIVATE);
-            SharedPreferences.Editor editor = sImg.edit();
-            editor.apply();
-        }
-        if(argument==3){
-
-            ImageView imageView=findViewById(R.id.imageViewProf);
-            imageView.setImageResource(R.drawable.ava_3);
-
-        }
-         */
 
 
+        userImageView.setClickable(true);
+        userImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProfileActivity.this, ImageDrawActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
 
-/*
-    public void BackClick3(View v) {
-        Intent intent = new Intent(this, NewsActivity.class);
-        startActivity(intent);
-    }
-
-    public void SaveClick(View v) {
-
-        sPref = getPreferences(MODE_PRIVATE);
-        SharedPreferences.Editor ed = sPref.edit();
-        ed.putString(SAVED_TEXT, et.getText().toString());
-        ed.apply();
-        Toast.makeText(this, "Text Saved", Toast.LENGTH_SHORT).show();
-
-    }
-
-    public void LoadClick(View v) {
-
-        sPref = getPreferences(MODE_PRIVATE);
-        String savedText = sPref.getString(SAVED_TEXT, "");
-        et.setText(savedText);
-        Toast.makeText(this, "Text loaded", Toast.LENGTH_SHORT).show();
-    }
-
-    public void ChangeClick(View v) {
-
-
-        Intent intent = new Intent(this, ImageDrawActivity.class);
-        startActivity(intent);
 
 
 
-    }
-    public void ImageChange(View view){
-
-    }
-
-    public void SaveImageClick(View v){
-        // private String saveToInternalStorage(Bitmap, selectedImage){
-
-
-    }
-    */
 
 }

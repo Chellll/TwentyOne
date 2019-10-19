@@ -3,6 +3,8 @@ package com.example.twentyone;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.twentyone.News.News_item;
+import com.example.twentyone.News.RVAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -19,15 +21,24 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.Menu;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
 public class NewsActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     LinearLayout newsScrollLinLayout;
+
+    private List<News_item> newsList;
+    private RecyclerView rv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,23 +49,20 @@ public class NewsActivity extends AppCompatActivity
         LinearLayout.LayoutParams lpView = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 
         //скролл для новостей
-        newsScrollLinLayout = findViewById(R.id.newsScrollLinLayout);
+       // newsScrollLinLayout = findViewById(R.id.newsScrollLinLayout);
+        rv=(RecyclerView)findViewById(R.id.rv1);
 
-        TextView tv1 = new TextView(this);
+
+
+
+      /*  TextView tv1 = new TextView(this);
         tv1.setText("pidorrrrr");
         tv1.setLayoutParams(lpView);
         newsScrollLinLayout.addView(tv1);
-
+*/
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Hello? it's me", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -62,6 +70,45 @@ public class NewsActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+
+        LinearLayoutManager llm = new LinearLayoutManager(this);
+        rv.setLayoutManager(llm);
+        rv.setHasFixedSize(true);
+
+
+
+        initializeData();
+        initializeAdapter();
+    }
+
+    private void initializeData(){
+        newsList = new ArrayList<>();
+        newsList.add(new News_item(
+                "Title1",
+                "User1",
+                new Date().toString(),
+                "Description1Description1Description1Description1Description1Description1Description1",
+                R.drawable.logo,
+                R.drawable.ava_1));
+        newsList.add(new News_item(
+                "Title2",
+                "User2",
+                new Date().toString(),
+                "324324324sdfdddfjbdfhjbsdnkjsnfkjshfbfgerhueru3i82733",
+                R.drawable.coin,
+                R.drawable.ava_3));
+        newsList.add(new News_item(
+                "Title3",
+                "User3",
+                new Date().toString(),
+                "Description1Defdgfdgn1Description1Description1Description1",
+                R.drawable.logo,
+                R.drawable.ava_2));
+    }
+
+    private void initializeAdapter(){
+        RVAdapter adapter = new RVAdapter(newsList);
+        rv.setAdapter(adapter);
     }
 
     @Override
@@ -111,6 +158,9 @@ public class NewsActivity extends AppCompatActivity
             startActivity(intent);
         } else if(id == R.id.nav_profile){
             Intent intent = new Intent(this, ProfileActivity.class);
+            startActivity(intent);
+        } else if(id == R.id.nav_friend){
+            Intent intent = new Intent(this, FriendActivity.class);
             startActivity(intent);
         }
 

@@ -32,4 +32,12 @@
     <string name="profile_nick">Никнейм</string>
     <string name="profile_email">Email</string>
     <string name="profile_friend">Друзья</string>
+
+    <string name="fa_heart_o">\uf08a</string>
+    <string name="fa_retweet">\uf079</string>
+
+    <string name="login_input_error">Проверьте введенные данные</string>
+    <string name="login_register_success">Вы зарегистрировались</string>
+    <string name="login_register_error">Вы не зарегистрировались</string>
+    <string name="login_error">Неверные данные</string>
 </resources>

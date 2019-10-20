@@ -22,6 +22,7 @@
         <activity android:name=".RatingActivity"></activity>
         <activity android:name=".StartGameActivity"></activity>
         <activity android:name=".FriendActivity"></activity>
+        <activity android:name=".GetMonetActivity"></activity>
         <activity android:name=".ImageDrawActivity">
         </activity>
         <activity android:name=".ProfileActivity"></activity>

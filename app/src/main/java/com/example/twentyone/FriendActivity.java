@@ -126,32 +126,6 @@ public class FriendActivity extends Activity {
         persons.add(new Person("Lavery Maiss", "25 years old", R.drawable.ava_2));
         persons.add(new Person("Lillie Watts", "35 years old", R.drawable.ava_3));
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 
     private void initializeAdapter(){

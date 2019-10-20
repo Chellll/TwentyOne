@@ -18,6 +18,8 @@ public class ProfileActivity extends AppCompatActivity {
 
     public static final String USER_KEY = "EMAIL_KEY";
 
+    private SharedPreferenceHelper mSharedPreder;
+
     private ImageView userImageView;
     private TextView nameTextView;
     private TextView nickTextView;
@@ -29,13 +31,18 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
+        mSharedPreder = new SharedPreferenceHelper(this);
+
         userImageView = findViewById(R.id.user_image_view);
         nameTextView = findViewById(R.id.user_name_text_view);
         nickTextView = findViewById(R.id.user_nick_text_view);
         emailTextView = findViewById(R.id.user_email_text_view);
         friendTextView = findViewById(R.id.following_count_text_view);
 
-        User user = SharedPreferenceHelper.getUserLocal();
+
+        User user = mSharedPreder.getUser();
+
+        //User user = SharedPreferenceHelper.getUserLocal();
 
 
 

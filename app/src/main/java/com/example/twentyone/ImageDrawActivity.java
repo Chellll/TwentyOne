@@ -30,7 +30,7 @@ sh = new SharedPreferenceHelper(this);
         ivAva1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPreferenceHelper.user.setImageUrl(getResources().getDrawable(R.drawable.ava_1));
+
                 Intent intent = new Intent(ImageDrawActivity.this, ProfileActivity.class);
                 startActivity(intent);
             }
@@ -39,8 +39,7 @@ sh = new SharedPreferenceHelper(this);
         ivAva2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sh.updateImageUser(SharedPreferenceHelper.user.getEmail(), getResources().getDrawable(R.drawable.ava_2));
-                SharedPreferenceHelper.user.setImageUrl(getResources().getDrawable(R.drawable.ava_2));
+
                 Intent intent = new Intent(ImageDrawActivity.this, ProfileActivity.class);
                 startActivity(intent);
             }
@@ -49,7 +48,7 @@ sh = new SharedPreferenceHelper(this);
         ivAva3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPreferenceHelper.user.setImageUrl(getResources().getDrawable(R.drawable.ava_3));
+                sh.updateImageUser(sh.getUser().getEmail(),getResources().getDrawable(R.drawable.ava_3));
                 Intent intent = new Intent(ImageDrawActivity.this, ProfileActivity.class);
                 startActivity(intent);
                 finish();

@@ -17,6 +17,7 @@ public class SharedPreferenceHelper {
 
     public static final String SHARED_PREF_NAME = "SHARED_PREF_NAME";
     public static final String USERS_KEY = "USERS_KEY";
+    public static final String USER_LOCAL = "USER_LOCAL";
 
     public static User user;
 
@@ -27,12 +28,29 @@ public class SharedPreferenceHelper {
     }
 
     public static final Type USERS_TYPE = new TypeToken<List<User>>(){}.getType();
+    public static final Type USER_TYPE = new TypeToken<User>(){}.getType();
 
     private Gson mGson = new Gson();
 
     public List<User> getUsers(){
         List<User> users = mGson.fromJson(mSharedPreferences.getString(USERS_KEY, ""), USERS_TYPE);
         return users == null ? new ArrayList<User>() : users;
+    }
+
+    public void saveUser(String email){
+
+        List<User> users = getUsers();
+        for(User u : users){
+            if(u.getEmail().equalsIgnoreCase(email)){
+                mSharedPreferences.edit().putString(USER_LOCAL, mGson.toJson(u, USER_TYPE)).apply();
+            }
+        }
+    }
+
+    public User getUser(){
+
+        User user =  mGson.fromJson(mSharedPreferences.getString(USER_LOCAL, ""), USER_TYPE);
+        return user == null ? new User() : user;
     }
 
     public boolean addUser(User user){
@@ -53,15 +71,24 @@ public class SharedPreferenceHelper {
 
         List<User> users = getUsers();
 
-        for(User u : users){
-            if(u.getEmail().equalsIgnoreCase(userEmail)){
-                u.setImageUrl(d);
+            for(User u : users){
+                if(u.getEmail().equalsIgnoreCase(userEmail)){
+                    u.setImageUrl(d);
+                }
             }
-        }
+        //if(users.size() > 0)
+       // mSharedPreferences.edit().putString(USERS_KEY, mGson.toJson(users, USERS_TYPE)).apply();
+
+        User user = getUser();
+        user.setImageUrl(d);
+        //if(user.getEmail() != "")
+        //mSharedPreferences.edit().putString(USER_LOCAL, mGson.toJson(user, USER_TYPE)).apply();
+
     }
 
-    public static void setUserLocal(User user){
-        SharedPreferenceHelper.user = user;
+    public void setUserLocal(User user){
+        mSharedPreferences.edit().putString(USER_LOCAL, mGson.toJson(user, USER_TYPE)).apply();
+
     }
 
     public static User getUserLocal(){

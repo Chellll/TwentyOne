@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/cv"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:padding="8dp">
+
+        <ImageView
+            android:id="@+id/idLogoTask"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/logo" />
+
+        <TextView
+            android:id="@+id/textTask"
+            style="@style/TextView.Primary.Bold"
+            android:layout_width="154dp"
+            android:layout_height="33dp"
+            android:layout_marginStart="11dp"
+            android:layout_marginEnd="-1dp"
+            android:layout_toStartOf="@+id/coinCount"
+            android:layout_toEndOf="@+id/idLogoTask"
+            android:gravity="center"
+            android:text="Привязать аккаунт к email"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/coinCount"
+            android:layout_width="wrap_content"
+            android:layout_height="33dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="0dp"
+            android:layout_toStartOf="@id/logoCoinCount"
+            android:gravity="center"
+            android:text="3000" />
+
+        <ImageView
+            android:id="@+id/logoCoinCount"
+            android:layout_width="48dp"
+            android:layout_height="33dp"
+            android:layout_marginEnd="10dp"
+            android:layout_toStartOf="@id/btnOk"
+            android:src="@drawable/coin" />
+
+        <Button
+            android:id="@+id/btnOk"
+            android:layout_width="38dp"
+            android:layout_height="33dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
+            android:textSize="10dp"
+            android:text="Ok"/>
+
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

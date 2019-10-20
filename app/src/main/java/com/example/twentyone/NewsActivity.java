@@ -162,6 +162,9 @@ public class NewsActivity extends AppCompatActivity
         } else if(id == R.id.nav_friend){
             Intent intent = new Intent(this, FriendActivity.class);
             startActivity(intent);
+        } else if(id == R.id.nav_send_coins){
+            Intent intent = new Intent(this, GetMonetActivity.class);
+            startActivity(intent);
         }
 
 /*

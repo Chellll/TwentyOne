@@ -6,4 +6,6 @@
     <dimen name="nav_header_height">176dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="text_small_margin">10dp</dimen>
+    <dimen name="viewpager_margin">-128dp</dimen>
+    <dimen name="viewpager_margin_fix">64dp</dimen>
 </resources>

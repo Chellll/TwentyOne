@@ -168,6 +168,9 @@ public class NewsActivity extends AppCompatActivity
         } else if(id == R.id.nav_rules){
             Intent intent = new Intent(this, RulesActivity.class);
             startActivity(intent);
+        } else if(id == R.id.nav_tournament){
+            Intent intent = new Intent(this, TournamentActivity.class);
+            startActivity(intent);
         }
 
 /*

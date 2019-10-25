@@ -55,7 +55,7 @@ public class AuthActivity extends AppCompatActivity {
                         //успешно вошли
                         isLoginSuccess = true;
                         if(isValidEmail() && isValidText(tvPassword.getText().toString())){
-                           // mSharedPreferenceHelper.setUserLocal(user);
+                            mSharedPreferenceHelper.setUserLocal(user);
                             Intent startIntent = new Intent(AuthActivity.this, NewsActivity.class);
                             startActivity(startIntent);
                         }

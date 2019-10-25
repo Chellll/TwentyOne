@@ -76,13 +76,9 @@ public class SharedPreferenceHelper {
                     u.setImageUrl(d);
                 }
             }
-        //if(users.size() > 0)
-       // mSharedPreferences.edit().putString(USERS_KEY, mGson.toJson(users, USERS_TYPE)).apply();
 
         User user = getUser();
         user.setImageUrl(d);
-        //if(user.getEmail() != "")
-        //mSharedPreferences.edit().putString(USER_LOCAL, mGson.toJson(user, USER_TYPE)).apply();
 
     }
 

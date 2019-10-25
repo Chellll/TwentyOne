@@ -13,12 +13,12 @@ public class ImageDrawActivity extends AppCompatActivity {
     private ImageView ivAva1;
     private ImageView ivAva2;
     private ImageView ivAva3;
- SharedPreferenceHelper sh;
+    private SharedPreferenceHelper sh;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image_draw);
-sh = new SharedPreferenceHelper(this);
+        sh = new SharedPreferenceHelper(this);
         ivAva1 = findViewById(R.id.imageViewAva_1);
         ivAva2 = findViewById(R.id.imageViewAva_2);
         ivAva3 = findViewById(R.id.imageViewAva_3);

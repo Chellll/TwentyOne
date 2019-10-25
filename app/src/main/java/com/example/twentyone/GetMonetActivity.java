@@ -298,7 +298,7 @@ public class GetMonetActivity extends Activity {
         ));tasks.add(new TaskItem(
                 4,
                 R.drawable.logo,
-                "Сходить к терпиле",
+                "Сходить в ашан",
                 "666",
                 R.drawable.coin
         ));

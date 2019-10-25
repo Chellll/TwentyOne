@@ -165,6 +165,9 @@ public class NewsActivity extends AppCompatActivity
         } else if(id == R.id.nav_send_coins){
             Intent intent = new Intent(this, GetMonetActivity.class);
             startActivity(intent);
+        } else if(id == R.id.nav_rules){
+            Intent intent = new Intent(this, RulesActivity.class);
+            startActivity(intent);
         }
 
 /*

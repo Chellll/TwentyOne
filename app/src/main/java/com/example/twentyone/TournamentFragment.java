@@ -46,6 +46,7 @@ public class TournamentFragment extends Fragment
         View myView = inflater.inflate(R.layout.fragment_tournament, null);
         TextView myTxt = (TextView) myView.findViewById(R.id.myTxt);
         ImageView myImag = (ImageView) myView.findViewById(R.id.imageViewTour);
+        TextView myTour = (TextView) myView.findViewById(R.id.textTour);
         myTxt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -53,13 +54,13 @@ public class TournamentFragment extends Fragment
             }
         });
         myTxt.setAnimation(AnimationUtils.loadAnimation(getActivity(), android.R.anim.fade_in));
-        if(pageNumber==0) {myTxt.setText("Турнир 1");myTxt.setBackgroundColor(Color.parseColor(RED_COLOR)); myImag.setImageResource(R.drawable.ava_1);}
-        if(pageNumber==1) {myTxt.setText("Турнир 2");myTxt.setBackgroundColor(Color.parseColor(ORANGE_COLOR));myImag.setImageResource(R.drawable.ava_2);}
-        if(pageNumber==2) {myTxt.setText("Турнир 3");myTxt.setBackgroundColor(Color.parseColor(GREEN_COLOR));myImag.setImageResource(R.drawable.ava_3);}
-        if(pageNumber==3) {myTxt.setText("Турнир 4");myTxt.setBackgroundColor(Color.parseColor(BLUE_COLOR));myImag.setImageResource(R.drawable.golden_cup);}
-        if(pageNumber==4) {myTxt.setText("Турнир 5");myTxt.setBackgroundColor(Color.parseColor(PURPLE_COLOR));myImag.setImageResource(R.drawable.player);}
-        if(pageNumber==5) {myTxt.setText("Турнир 6");myTxt.setBackgroundColor(Color.parseColor(YELLOW_COLOR));myImag.setImageResource(R.drawable.coin);}
-        if(pageNumber==6) {myTxt.setText("Турнир 7");myTxt.setBackgroundColor(Color.parseColor(LIGHT_BLUE_COLOR));myImag.setImageResource(R.drawable.icon);}
+        if(pageNumber==0) {myTxt.setText("Турнир 1");myTxt.setBackgroundColor(Color.parseColor(RED_COLOR)); myImag.setImageResource(R.drawable.ava_1); myTour.setText("Описание первого турнира");}
+        if(pageNumber==1) {myTxt.setText("Турнир 2");myTxt.setBackgroundColor(Color.parseColor(ORANGE_COLOR));myImag.setImageResource(R.drawable.ava_2);myTour.setText("Описание второго турнира");}
+        if(pageNumber==2) {myTxt.setText("Турнир 3");myTxt.setBackgroundColor(Color.parseColor(GREEN_COLOR));myImag.setImageResource(R.drawable.ava_3);myTour.setText("Описание третьего турнира");}
+        if(pageNumber==3) {myTxt.setText("Турнир 4");myTxt.setBackgroundColor(Color.parseColor(BLUE_COLOR));myImag.setImageResource(R.drawable.golden_cup);myTour.setText("Описание Сереги");}
+        if(pageNumber==4) {myTxt.setText("Турнир 5");myTxt.setBackgroundColor(Color.parseColor(PURPLE_COLOR));myImag.setImageResource(R.drawable.player);myTour.setText("Описание Никиты");}
+        if(pageNumber==5) {myTxt.setText("Турнир 6");myTxt.setBackgroundColor(Color.parseColor(YELLOW_COLOR));myImag.setImageResource(R.drawable.coin);myTour.setText("Описание Александра");}
+        if(pageNumber==6) {myTxt.setText("Турнир 7");myTxt.setBackgroundColor(Color.parseColor(LIGHT_BLUE_COLOR));myImag.setImageResource(R.drawable.icon);myTour.setText("Описание седьмого турнира");}
 
 
         return myView;

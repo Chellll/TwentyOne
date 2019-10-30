@@ -16,7 +16,7 @@
         app:layout_constraintStart_toEndOf="@+id/textViewType"
         app:layout_constraintTop_toTopOf="@+id/textViewType"
         app:srcCompat="@drawable/information"
-        android:onClick="onClick"/>
+        android:onClick="onClickInf"/>
 
     <ImageView
         android:id="@+id/imageViewCoin"
@@ -148,13 +148,14 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewType3" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonStart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="Создатб"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox" />
+        app:layout_constraintTop_toBottomOf="@+id/checkBox"
+        android:onClick="onClickStart"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

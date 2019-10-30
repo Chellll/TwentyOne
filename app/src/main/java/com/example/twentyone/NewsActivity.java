@@ -172,7 +172,6 @@ public class NewsActivity extends AppCompatActivity
             Intent intent = new Intent(this, TournamentActivity.class);
             startActivity(intent);
         }
-
 /*
         if (id == R.id.nav_home) {
             // Handle the camera action

@@ -2,8 +2,10 @@ package com.example.twentyone;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -13,14 +15,11 @@ public class StartGameActivity extends AppCompatActivity implements SeekBar.OnSe
     TextView textViewType1;
     TextView textViewType2;
     TextView textViewType3;
-    TextView textViewPlayers2;
-    TextView textViewPlayers3;
-    TextView textViewPlayers4;
-    TextView textViewPlayers5;
     TextView bet;
     TextView players;
     SeekBar sb;
     SeekBar sb2;
+    Button buttonStart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +34,7 @@ public class StartGameActivity extends AppCompatActivity implements SeekBar.OnSe
         sb2 = (SeekBar) findViewById(R.id.sb2);
         sb.setOnSeekBarChangeListener(this);
         sb2.setOnSeekBarChangeListener(this);
+        buttonStart = (Button) findViewById(R.id.buttonStart);
     }
     public void onClickType(View v) {
         textViewType1.setBackgroundResource(R.drawable.type);
@@ -67,14 +67,14 @@ public class StartGameActivity extends AppCompatActivity implements SeekBar.OnSe
 
     }
 
-    public void onClick(View v) {
+    public void onClickInf(View v) {
         AlertDialog.Builder builder = new AlertDialog.Builder(StartGameActivity.this);
         builder.setTitle("info")
-                .setMessage("Тип1\n  Крч, братан, этот тип игры предполагает, что я в своём познании преисполнился." +
-                            "\nТип2\n  А этот тип заключается в том, что я как будто бы уже 100 триллионов миллиардов лет проживаю на триллионах и триллионах таких же планет." +
-                            "\nТип3\n  Ну а этот тип состоит в том, что мне уже этот мир абсолютно понятен, и я здесь ищу только одного: покоя, умиротворения и вот этой гармонии от слияния с бесконечно вечным.")
+                .setMessage("Тип1\n  Карты закрыты и время хода неограничено." +
+                            "\nТип2\n  Карты закрыты и время хода ограничено." +
+                            "\nТип3\n  Карты открыты и время хода ограничено.")
                 .setCancelable(false)
-                .setNegativeButton("ОК, спасибо за преисполнение",
+                .setNegativeButton("ОК",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 dialog.cancel();
@@ -82,6 +82,10 @@ public class StartGameActivity extends AppCompatActivity implements SeekBar.OnSe
                         });
         AlertDialog alert = builder.create();
         alert.show();
+    }
+    public void onClickStart(View v) {
+        Intent intent = new Intent(this, GameActivity2.class);
+        startActivity(intent);
     }
 }
 

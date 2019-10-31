@@ -64,6 +64,8 @@ public class RegisterActivity extends AppCompatActivity {
                     ));
                     if(isAdded){
                         showMessage(R.string.login_register_success);
+                        Intent intent = new Intent(RegisterActivity.this, NewsActivity.class);
+                        startActivity(intent);
                     }else{
                         showMessage(R.string.login_register_error);
                     }

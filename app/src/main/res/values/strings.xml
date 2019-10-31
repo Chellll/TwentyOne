@@ -38,6 +38,6 @@
 
     <string name="login_input_error">Проверьте введенные данные</string>
     <string name="login_register_success">Вы зарегистрировались</string>
-    <string name="login_register_error">Вы не зарегистрировались</string>
+    <string name="login_register_error">Проверьте введенные данные</string>
     <string name="login_error">Неверные данные</string>
 </resources>

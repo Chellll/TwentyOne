@@ -23,6 +23,12 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void onClickGuest(View view){
+        Intent intent = new Intent(MainActivity.this, NewsActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
     public void onClickAuth(View view){
         Intent intent = new Intent(this, AuthActivity.class);
         startActivity(intent);

@@ -1,5 +1,6 @@
 package com.example.twentyone;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -7,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,6 +25,7 @@ public class TournamentFragment extends Fragment {
     static final String BLUE_COLOR = "#004cff";          //сидит
     static final String PURPLE_COLOR = "#df10ff";        //фазан
 
+
     int pageNumber;
 
     static TournamentFragment newInstance(int page) {
@@ -37,6 +40,7 @@ public class TournamentFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         pageNumber = getArguments().getInt(PAGE_NUMBER_POSITION);
+
     }
 
     @Override
@@ -45,13 +49,24 @@ public class TournamentFragment extends Fragment {
         TextView myTxt = (TextView) myView.findViewById(R.id.myTxt);
         ImageView myImag = (ImageView) myView.findViewById(R.id.imageViewTour);
         TextView myTour = (TextView) myView.findViewById(R.id.textTour);
+        ImageView secImag = myView.findViewById(R.id.imageViewTour2);
+        TextView tourDescr = myView.findViewById(R.id.textViewTourDescription);
+        TextView tourDate = myView.findViewById(R.id.textViewTourDate);
+        TextView tourPeopleCount = myView.findViewById(R.id.textViewTourPeopleCount);
         myTxt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getContext(), Integer.toString(pageNumber + 1), Toast.LENGTH_SHORT).show();
             }
         });
+        Intent intent = new Intent(getContext(),TournamentActivity.class);
         myTxt.setAnimation(AnimationUtils.loadAnimation(getActivity(), android.R.anim.fade_in));
+
+
+        int peop = 12;
+        int Maxpeop = 100;
+
+
 
 
             if (pageNumber == 0) {
@@ -59,6 +74,19 @@ public class TournamentFragment extends Fragment {
                 myTxt.setBackgroundColor(Color.parseColor(RED_COLOR));
                 myImag.setImageResource(R.drawable.ava_1);
                 myTour.setText("Описание первого турнира");
+               // secImag.setImageResource(R.drawable.ava_1)
+                //tourDescr.setText("Описание турнира тут будет когда нибудь а пока здеь просто много слов, но не так много как в романе Льва Николаевича Толстого 'Война и мир' ");
+               // tourDate.setText("21.05.2019");
+                //tourPeopleCount.setText(peop+ "/"+Maxpeop);
+                myTxt.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(getContext(),TournamentActivitySecond.class);
+                        startActivity(intent);
+                    }
+
+                });
+
             }
 
             if (pageNumber == 1) {
@@ -66,9 +94,22 @@ public class TournamentFragment extends Fragment {
                 myTxt.setBackgroundColor(Color.parseColor(ORANGE_COLOR));
                 myImag.setImageResource(R.drawable.ava_2);
                 myTour.setText("Описание второго турнира");
-                myTxt.setBackgroundColor(Color.parseColor(ORANGE_COLOR));
-                myImag.setImageResource(R.drawable.ava_2);
-                myTour.setText("Описание второго турнира");
+                int resID=getResources().getIdentifier("ava_2","drawable",getContext().getPackageName());
+              //  secImag.setImageResource(R.drawable.ava_2);
+              //  tourDescr.setText("Описание турнира тут будет когда нибудь а пока здеь просто много слов, но не так много как в серии романов Анжея Сапковского 'Возьмак'  ");
+               // tourDate.setText("21.05.2029");
+              //  tourPeopleCount.setText(peop+ "/"+Maxpeop);
+                myTxt.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(getContext(),TournamentActivitySecond.class);
+                        startActivity(intent);
+                    }
+
+                });
+
+
+
             }
 
             if (pageNumber == 2) {
@@ -77,10 +118,19 @@ public class TournamentFragment extends Fragment {
                 myTxt.setBackgroundColor(Color.parseColor(GREEN_COLOR));
                 myImag.setImageResource(R.drawable.ava_3);
                 myTour.setText("Описание третьего турнира");
+              //  secImag.setImageResource(R.drawable.ava_3);
+               // tourDescr.setText("Описание турнира тут будет когда нибудь а пока здеь просто много слов, но не так много как в романе Гоголя 'Мёртвые души' ");
+               // tourDate.setText("11.04.2039");
+               // tourPeopleCount.setText(peop+ "/"+Maxpeop);
+                myTxt.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(getContext(),TournamentActivitySecond.class);
+                        startActivity(intent);
+                    }
 
-                myTxt.setBackgroundColor(Color.parseColor(GREEN_COLOR));
-                myImag.setImageResource(R.drawable.ava_3);
-                myTour.setText("Описание третьего турнира");
+                });
+
 
             }
 
@@ -89,9 +139,18 @@ public class TournamentFragment extends Fragment {
                 myTxt.setBackgroundColor(Color.parseColor(BLUE_COLOR));
                 myImag.setImageResource(R.drawable.golden_cup);
                 myTour.setText("Описание Сереги");
-                myTxt.setBackgroundColor(Color.parseColor(BLUE_COLOR));
-                myImag.setImageResource(R.drawable.golden_cup);
-                myTour.setText("Описание Сереги");
+              //  secImag.setImageResource(R.drawable.golden_cup);
+              //  tourDescr.setText("Описание турнира тут будет когда нибудь а пока здеь просто много слов, но не так много как в этот момент зашёл Насуртдинов Рамиль Радикович и всё пошло не туда ");
+              //  tourDate.setText("25 мая");
+              //  tourPeopleCount.setText(peop+ "/"+Maxpeop);
+                myTxt.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(getContext(),TournamentActivitySecond.class);
+                        startActivity(intent);
+                    }
+
+                });
             }
 
             if (pageNumber == 4) {
@@ -99,6 +158,18 @@ public class TournamentFragment extends Fragment {
                 myTxt.setBackgroundColor(Color.parseColor(PURPLE_COLOR));
                 myImag.setImageResource(R.drawable.player);
                 myTour.setText("Описание Никиты");
+           //     secImag.setImageResource(R.drawable.player);
+            //    tourDescr.setText("Описание турнира тут будет когда нибудь а пока здеь просто много слов, но не так много как тут уже читать никото не будет ");
+            //    tourDate.setText("21.05.2019");
+             //   tourPeopleCount.setText(peop+ "/"+Maxpeop);
+                myTxt.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(getContext(),TournamentActivitySecond.class);
+                        startActivity(intent);
+                    }
+
+                });
             }
 
             if (pageNumber == 5) {
@@ -106,6 +177,19 @@ public class TournamentFragment extends Fragment {
                 myTxt.setBackgroundColor(Color.parseColor(YELLOW_COLOR));
                 myImag.setImageResource(R.drawable.coin);
                 myTour.setText("Описание Александра");
+              //  secImag.setImageResource(R.drawable.coin);
+              //  tourDescr.setText("Описание турнира тут будет когда нибудь а пока здеь просто пустота ");
+              //  tourDate.setText("дата начала турнира");
+              //  tourPeopleCount.setText(peop+ "/"+Maxpeop);
+                myTxt.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(getContext(),TournamentActivitySecond.class);
+                        startActivity(intent);
+                    }
+
+                });
+
             }
 
             if (pageNumber == 6) {
@@ -113,6 +197,18 @@ public class TournamentFragment extends Fragment {
                 myTxt.setBackgroundColor(Color.parseColor(LIGHT_BLUE_COLOR));
                 myImag.setImageResource(R.drawable.icon);
                 myTour.setText("Описание седьмого турнира");
+              //  secImag.setImageResource(R.drawable.icon);
+               // tourDescr.setText("Описание турнира тут будет когда нибудь а пока здеь просто много слов, но не так много как в романе Льва Николаевича Толстого 'Война и мир' ");
+               // tourDate.setText("21.05.2019");
+              //  tourPeopleCount.setText(peop+ "/"+Maxpeop);
+                myTxt.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(getContext(),TournamentActivitySecond.class);
+                        startActivity(intent);
+                    }
+
+                });
             }
 
 
@@ -122,4 +218,5 @@ public class TournamentFragment extends Fragment {
         public void onClick () {
             Toast.makeText(getContext(), Integer.toString(pageNumber), Toast.LENGTH_SHORT).show();
         }
+
 }

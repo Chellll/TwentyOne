@@ -42,13 +42,10 @@ public class ProfileActivity extends AppCompatActivity {
 
         User user = mSharedPreder.getUser();
 
-        //User user = SharedPreferenceHelper.getUserLocal();
-
-
-
         nameTextView.setText(user.getName());
         nickTextView.setText(user.getNick());
         emailTextView.setText(user.getEmail());
+
         if(user.getImageUrl()!= null)
         {
             userImageView.setImageDrawable(user.getImageUrl());

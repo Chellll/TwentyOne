@@ -70,6 +70,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="8dp"
         android:text="Гость"
+        android:onClick="onClickGuest"
         app:layout_constraintBottom_toTopOf="@+id/guidelineGuest"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintStart_toStartOf="@+id/guideline"

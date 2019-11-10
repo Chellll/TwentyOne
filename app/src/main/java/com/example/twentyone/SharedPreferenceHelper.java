@@ -19,12 +19,21 @@ public class SharedPreferenceHelper {
     public static final String USERS_KEY = "USERS_KEY";
     public static final String USER_LOCAL = "USER_LOCAL";
 
+    public static final String USER_KEY = "USER_KEY";
+
     public static User user;
 
     private SharedPreferences mSharedPreferences;
 
     public SharedPreferenceHelper(Context context){
         mSharedPreferences = context.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        User user = new User();
+        user.setEmail("mr.dark051@yandex.ru");
+        user.setPassword("456654");
+        user.setFriendCount(0);
+        user.setName("Nikita");
+        user.setNick("Nikitka");
+        addUser(user);
     }
 
     public static final Type USERS_TYPE = new TypeToken<List<User>>(){}.getType();
@@ -48,8 +57,7 @@ public class SharedPreferenceHelper {
     }
 
     public User getUser(){
-
-        User user =  mGson.fromJson(mSharedPreferences.getString(USER_LOCAL, ""), USER_TYPE);
+        User user =  mGson.fromJson(mSharedPreferences.getString(USER_KEY, ""), USER_TYPE);
         return user == null ? new User() : user;
     }
 
@@ -61,9 +69,10 @@ public class SharedPreferenceHelper {
                 return false;
             }
         }
-
+        user.inAuth = true;
         users.add(user);
         mSharedPreferences.edit().putString(USERS_KEY, mGson.toJson(users, USERS_TYPE)).apply();
+        mSharedPreferences.edit().putString(USER_KEY, mGson.toJson(user.getEmail())).apply();
         return true;
     }
 
@@ -82,13 +91,8 @@ public class SharedPreferenceHelper {
 
     }
 
-    public void setUserLocal(User user){
-        mSharedPreferences.edit().putString(USER_LOCAL, mGson.toJson(user, USER_TYPE)).apply();
-
-    }
-
-    public static User getUserLocal(){
-        return user;
+    public void setUser(User user){
+        mSharedPreferences.edit().putString(USER_KEY, mGson.toJson(user)).apply();
     }
 
 }

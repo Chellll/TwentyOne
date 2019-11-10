@@ -7,6 +7,8 @@ import java.util.Objects;
 
 public class User implements Serializable {
 
+    public Boolean inAuth;
+
     private Drawable imageUrl;
     private String name;
     private String nick;

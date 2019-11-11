@@ -40,4 +40,7 @@
     <string name="login_register_success">Вы зарегистрировались</string>
     <string name="login_register_error">Проверьте введенные данные</string>
     <string name="login_error">Неверные данные</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

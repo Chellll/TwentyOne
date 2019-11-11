@@ -17,14 +17,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         //проверка на то, вошел человек уже или нет
-        sharedPreferenceHelper = new SharedPreferenceHelper(this);
+        /*sharedPreferenceHelper = new SharedPreferenceHelper(this);
         User user = sharedPreferenceHelper.getUser();
         if(user.getEmail() != "")
         {
             Intent intent = new Intent(MainActivity.this, NewsActivity.class);
             startActivity(intent);
-        }
-
+        }*/
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 

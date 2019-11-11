@@ -84,7 +84,8 @@ public class StartGameActivity extends AppCompatActivity implements SeekBar.OnSe
         alert.show();
     }
     public void onClickStart(View v) {
-        Intent intent = new Intent(this, GameActivity2.class);
+        Intent intent = new Intent(this, GameActivity.class);
+        intent.putExtra("kPl", sb2.getProgress());
         startActivity(intent);
     }
 }

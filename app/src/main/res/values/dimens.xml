@@ -8,4 +8,5 @@
     <dimen name="text_small_margin">10dp</dimen>
     <dimen name="viewpager_margin">-128dp</dimen>
     <dimen name="viewpager_margin_fix">64dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
 </resources>

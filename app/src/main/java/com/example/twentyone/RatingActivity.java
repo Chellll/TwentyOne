@@ -1,6 +1,12 @@
 package com.example.twentyone;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.graphics.Point;
 
 import android.graphics.drawable.GradientDrawable;
@@ -8,12 +14,16 @@ import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.view.Display;
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.google.android.material.navigation.NavigationView;
 
 
 public class RatingActivity extends AppCompatActivity {
@@ -37,6 +47,8 @@ public class RatingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rating);
         ratingScrollLinLayout = (LinearLayout) findViewById(R.id.ratingScrollLinLayout);
+
+
 
 
         GradientDrawable gdRatingLine = new GradientDrawable();
@@ -156,4 +168,5 @@ public class RatingActivity extends AppCompatActivity {
         intent.putExtra("wins",String.valueOf(wins));
         startActivity(intent);
     }*/
+
 }

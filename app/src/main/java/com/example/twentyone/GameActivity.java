@@ -2,8 +2,14 @@ package com.example.twentyone;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.viewpager.widget.ViewPager;
 
+import android.graphics.Point;
+import android.net.wifi.p2p.WifiP2pManager;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.view.Display;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
@@ -11,6 +17,8 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import java.util.Timer;
 
 public class GameActivity extends AppCompatActivity {
     int n = 10;
@@ -22,9 +30,12 @@ public class GameActivity extends AppCompatActivity {
     int posX3 = 520;
     int posY1 = 200;
     int posY2 = 790;
-    int posY3 = 1075;
+    int posY3 = 1175;
     int widthCard = 120;
     int heightCard = 160;
+    int between_card = 7;
+    int wh_icon = 60;
+
     ImageView[] imageViewMyCard = new ImageView[n];
     ImageView[] imageViewCard2 = new ImageView[n];
     ImageView[] imageViewCard3 = new ImageView[n];
@@ -40,6 +51,22 @@ public class GameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+        Display display = getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        float width = size.x;
+        float coeff = (float) (width / 720.0);
+        h = (int) (70 * coeff);
+        posX1 = (int) (posX1 * coeff);
+        posX2 = (int) (posX2 * coeff);
+        posX3 = (int) (posX3 * coeff);
+        posY1 = (int) (posY1 * coeff);
+        posY2 = (int) (posY2 * coeff);
+        posY3 = (int) (posY3 * coeff);
+        widthCard = (int) (widthCard * coeff);
+        heightCard = (int) (heightCard * coeff);
+        between_card = (int) (between_card * coeff);
+        wh_icon = (int) (wh_icon * coeff);
         Bundle arguments = getIntent().getExtras();
         kPl = arguments.getInt("kPl");
         dealing_my_card = AnimationUtils.loadAnimation(this, R.anim.dealing_my_card);
@@ -54,8 +81,8 @@ public class GameActivity extends AppCompatActivity {
             players[i].setOrientation(LinearLayout.HORIZONTAL);
             imageViewPlayers[i] = new ImageView(this);
             imageViewPlayers[i].setLayoutParams(new LinearLayout.LayoutParams(
-                    60,
-                    60
+                    wh_icon,
+                    wh_icon
             ));
             imageViewPlayers[i].setImageResource(R.drawable.icon);
             textViewPlayers[i] = new TextView(this);
@@ -101,7 +128,21 @@ public class GameActivity extends AppCompatActivity {
             players[3].setX(posX3);
             players[3].setY(posY1-h);
         }
+
     }
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if (hasFocus) {
+            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                    | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                    | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                    | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                    | View.SYSTEM_UI_FLAG_FULLSCREEN
+                    | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+        }
+    }
+
     public void onClick(View view){
         if (k < n)
         {
@@ -227,31 +268,31 @@ public class GameActivity extends AppCompatActivity {
                 main.addView(imageViewCard5[k]);
             }
 
-            posX1 += 7;
-            posX2 += 7;
-            posX3 += 7;
+            posX1 += between_card;
+            posX2 += between_card;
+            posX3 += between_card;
 
             for (int i = 0; i < k; i++)
             {
-                imageViewMyCard[i].setTranslationX(imageViewMyCard[i].getTranslationX()-7);
-                if (kPl == 2) imageViewCard2[i].setTranslationX(imageViewCard2[i].getTranslationX()-7);
+                imageViewMyCard[i].setTranslationX(imageViewMyCard[i].getTranslationX()-between_card);
+                if (kPl == 2) imageViewCard2[i].setTranslationX(imageViewCard2[i].getTranslationX()-between_card);
                 if (kPl == 3)
                 {
-                    imageViewCard2[i].setTranslationX(imageViewCard2[i].getTranslationX()-7);
-                    imageViewCard3[i].setTranslationX(imageViewCard3[i].getTranslationX()-7);
+                    imageViewCard2[i].setTranslationX(imageViewCard2[i].getTranslationX()-between_card);
+                    imageViewCard3[i].setTranslationX(imageViewCard3[i].getTranslationX()-between_card);
                 }
                 if (kPl == 4)
                 {
-                    imageViewCard2[i].setTranslationX(imageViewCard2[i].getTranslationX()-7);
-                    imageViewCard3[i].setTranslationX(imageViewCard3[i].getTranslationX()-7);
-                    imageViewCard4[i].setTranslationX(imageViewCard4[i].getTranslationX()-7);
+                    imageViewCard2[i].setTranslationX(imageViewCard2[i].getTranslationX()-between_card);
+                    imageViewCard3[i].setTranslationX(imageViewCard3[i].getTranslationX()-between_card);
+                    imageViewCard4[i].setTranslationX(imageViewCard4[i].getTranslationX()-between_card);
                 }
                 if (kPl == 5)
                 {
-                    imageViewCard2[i].setTranslationX(imageViewCard2[i].getTranslationX()-7);
-                    imageViewCard3[i].setTranslationX(imageViewCard3[i].getTranslationX()-7);
-                    imageViewCard4[i].setTranslationX(imageViewCard4[i].getTranslationX()-7);
-                    imageViewCard5[i].setTranslationX(imageViewCard5[i].getTranslationX()-7);
+                    imageViewCard2[i].setTranslationX(imageViewCard2[i].getTranslationX()-between_card);
+                    imageViewCard3[i].setTranslationX(imageViewCard3[i].getTranslationX()-between_card);
+                    imageViewCard4[i].setTranslationX(imageViewCard4[i].getTranslationX()-between_card);
+                    imageViewCard5[i].setTranslationX(imageViewCard5[i].getTranslationX()-between_card);
                 }
             }
             k++;
